@@ -1,0 +1,30 @@
+検証日: 2026-11-03 (Asia/Tokyo)
+
+省電力版の変更:
+  無操作6秒で減光、10秒でバックライト消灯。
+  最初のボタンで画面復帰と通常のコマンド処理を同時に実施。
+  カメラの定期受信ではタイマーを延長しない。
+  消灯中は画面描画・転送を停止。
+  CPUを起動時に160MHzへ変更。USBモニタ未接続時はRXログのコピーとキュー投入を省略。
+  BLE接続、送信出力、接続間隔、広告間隔、5msボタン確認、コマンド形式は維持。
+  前版のM5Canvasによるちらつき対策を維持。
+
+ESP32-S3ビルド:
+  PlatformIO: espressif32 6.12.0 / sticks3 / Arduino-ESP32 2.0.17
+  SUCCESS (11.26 seconds)
+  RAM static: 48,472 / 327,680 bytes
+  Flash: 1,153,421 / 3,342,336 bytes
+  キャンバス約65KBは動的確保。上記RAM静的値には含まない。
+
+ホストC++テスト:
+  PASS: command bytes, advertising, buttons, reconnect, cooldown, rollover
+  PASS: idle dim/off, first-press commands, hold, connection wake, disabled stages, rollover
+
+SDK構成確認:
+  ESP32-S3 qio_opi の sdkconfig.h は CONFIG_BT_CTRL_SLEEP_MODE_EFF=0。
+  CONFIG_PM_ENABLE は未定義。Bluetoothモデムスリープや動的CPU省電力は追加していない。
+
+実機:
+  初版: ユーザーからX4 Airとの接続・操作成功報告あり。
+  省電力版: 再書き込み、表示、ボタン反応、接続安定性、消費電流、電池持ちは実機確認待ち。
+  電池持ちの延長時間は未測定であり保証しない。
