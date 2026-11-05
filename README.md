@@ -175,6 +175,20 @@ c++ -std=c++11 -Wall -Wextra -Werror tests/test_power.cpp -o /tmp/insta360-power
 
 これは実機向けビルドや無線での動作試験の代わりにはなりません。
 
+## ライセンス
+
+本プロジェクトの独自部分はMIT Licenseで公開します。詳細はルートの [LICENSE](LICENSE) を参照してください。
+第三者のコード・参考実装と依存ライブラリには、それぞれの元のライセンスが適用されます。
+出典と通知は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) を参照してください。
+
+このリポジトリはアプリケーションのソースを配布します。Arduino-ESP32、M5Unified、M5GFX等は別途取得します。
+ファームウェアバイナリや書き込み済み本体を第三者へ配布する場合は、LGPLの対応ソース／再リンク要件、
+MIT・BSD・Apacheの通知、および実際に組み込まれた各コンポーネントの条件にも対応してください。
+
+本プロジェクトはInsta360、M5Stack、Arduinoによる公式・認定製品ではありません。
+Arduino® is a trademark of Arduino S.r.l.
+その他の製品名・商標・ロゴの権利は、それぞれの権利者に帰属します。
+
 ## 参照
 
 - [StickS3公式仕様・PlatformIO設定](https://docs.m5stack.com/en/core/StickS3)
